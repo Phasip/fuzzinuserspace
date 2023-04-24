@@ -1,0 +1,26 @@
+diff --git a/crypto/asymmetric_keys/pkcs8_parser.c b/crypto/asymmetric_keys/pkcs8_parser.c
+index 105dcce27f71..2c5d3cde7831 100644
+--- a/crypto/asymmetric_keys/pkcs8_parser.c
++++ b/crypto/asymmetric_keys/pkcs8_parser.c
+@@ -133,7 +133,7 @@ static struct public_key *pkcs8_parse(const void *data, size_t datalen)
+ /*
+  * Attempt to parse a data blob for a key as a PKCS#8 private key.
+  */
+-static int pkcs8_key_preparse(struct key_preparsed_payload *prep)
++int pkcs8_key_preparse(struct key_preparsed_payload *prep)
+ {
+        struct public_key *pub;
+ 
+diff --git a/crypto/asymmetric_keys/public_key.c b/crypto/asymmetric_keys/public_key.c
+index 2f8352e88860..717eb16e2ee6 100644
+--- a/crypto/asymmetric_keys/public_key.c
++++ b/crypto/asymmetric_keys/public_key.c
+@@ -64,7 +64,7 @@ static void public_key_destroy(void *payload0, void *payload3)
+  * and/or verification with that key, determine the name of the corresponding
+  * akcipher algorithm.  Also check that encoding and hash_algo are allowed.
+  */
+-static int
++int
+ software_key_determine_akcipher(const struct public_key *pkey,
+                                const char *encoding, const char *hash_algo,
+                                char alg_name[CRYPTO_MAX_ALG_NAME])
